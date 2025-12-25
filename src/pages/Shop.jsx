@@ -69,21 +69,27 @@ const Shop = () => {
         }));
     }, [categoryParam, collectionParam, occasionParam]);
 
+    const [error, setError] = useState(null);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setError(null);
                 // Fetch Categories
                 const catRes = await fetch(`${API_URL}/categories`);
+                if (!catRes.ok) throw new Error('Failed to fetch categories');
                 const catData = await catRes.json();
-                if (catRes.ok) setAvailableCategories(catData.map(c => c.name));
+                setAvailableCategories(catData.map(c => c.name));
 
                 // Fetch Products
                 const prodRes = await fetch(`${API_URL}/products`);
+                if (!prodRes.ok) throw new Error('Failed to fetch products');
                 const prodData = await prodRes.json();
-                if (prodRes.ok) setProducts(prodData);
+                setProducts(prodData);
 
             } catch (err) {
                 console.error("Fetch error:", err);
+                setError(err.message || "Failed to load products");
             } finally {
                 setLoading(false);
             }
@@ -374,6 +380,12 @@ const Shop = () => {
                             {loading ? (
                                 <div className="text-center py-5 w-100">
                                     <div className="spinner-border text-primary" role="status"><span className="visually-hidden">Loading...</span></div>
+                                </div>
+                            ) : error ? (
+                                <div className="text-center py-5 w-100">
+                                    <h4 className="text-danger">Unable to load products.</h4>
+                                    <p className="text-muted">{error}</p>
+                                    <p className="small">Please check your internet connection or try again later.</p>
                                 </div>
                             ) : sortedProducts.length > 0 ? (
                                 sortedProducts.map((product) => (
