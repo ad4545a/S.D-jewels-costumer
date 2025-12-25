@@ -60,7 +60,7 @@ const Header = () => {
     const menuItems = [
         {
             label: "Rings",
-            link: "/shop?category=Ring",
+            link: "/shop?category=Rings",
             megaMenu: {
                 featured: ["Latest Designs", "Bestsellers"],
                 style: ["All Rings", "Engagement", "Dailywear", "Infinity", "Cocktail", "Solitaire", "Couple Rings", "Bands", "Promise Rings"],
@@ -87,7 +87,7 @@ const Header = () => {
         },
         {
             label: "Bracelets & Bangles",
-            link: "/shop?category=Bracelet",
+            link: "/shop?category=Bracelets",
             megaMenu: {
                 featured: ["Latest Designs", "Bestsellers"],
                 style: ["All Bracelets & Bangles", "Adjustable Bracelets", "Chain Bracelets", "Flexible Bracelets", "Tennis Bracelets", "Bridal Bangles", "Lightweight Bangles"],
@@ -126,7 +126,7 @@ const Header = () => {
         },
         {
             label: "Necklaces & Pendants",
-            link: "/shop?category=Necklace",
+            link: "/shop?category=Necklaces",
             megaMenu: {
                 featured: ["New Launches", "Gift Ideas", "Bridal Sets"],
                 style: ["Chains", "Lockets", "Pendants", "Collar Necklaces", "Layered Necklaces", "Long Necklaces", "Pearl Necklaces"],

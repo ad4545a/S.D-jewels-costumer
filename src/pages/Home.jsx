@@ -18,22 +18,35 @@ const Home = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
+                console.log('🔍 API_URL:', API_URL);
+                console.log('🌐 Fetching from:', `${API_URL}/products`);
+
                 // Fetch featured products
                 const res = await fetch(`${API_URL}/products`);
-                const data = await res.json();
-                if (res.ok) {
-                    setFeaturedProducts(data.slice(0, 4));
+                console.log('📡 Response status:', res.status, res.statusText);
+
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
                 }
+
+                const data = await res.json();
+                console.log('✅ Products fetched:', data.length);
+                setFeaturedProducts(data.slice(0, 4));
 
                 // Fetch analytics data
                 const analyticsRes = await fetch(`${API_URL}/products/analytics/featured`);
-                const analyticsData = await analyticsRes.json();
                 if (analyticsRes.ok) {
+                    const analyticsData = await analyticsRes.json();
                     setBestSellers(analyticsData.bestSellers?.slice(0, 4) || []);
                     setRecommended(analyticsData.recommended?.slice(0, 4) || []);
                 }
             } catch (error) {
-                console.error("Failed to fetch products for home", error);
+                console.error("❌ Failed to fetch products for home", error);
+                console.error("Error details:", {
+                    message: error.message,
+                    type: error.name,
+                    apiUrl: API_URL
+                });
             } finally {
                 setLoading(false);
             }
