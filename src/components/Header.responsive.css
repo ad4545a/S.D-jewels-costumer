@@ -1,0 +1,208 @@
+/* ========================================
+   MOBILE & TABLET RESPONSIVE STYLES
+   ======================================== */
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+    .header-top {
+        padding: 0 20px;
+        height: 60px;
+    }
+
+    .logo-text {
+        font-size: 1.3rem !important;
+    }
+
+    .center-links {
+        gap: 30px;
+    }
+
+    .center-links a {
+        font-size: 0.9rem;
+    }
+
+    /* Hide header nav on tablet */
+    .header-nav {
+        display: none;
+    }
+
+    /* Mega menu adjustments */
+    .mega-menu {
+        padding: 20px;
+    }
+
+    .mega-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .menu-promo img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+    .main-header {
+        position: fixed;
+    }
+
+    .header-top {
+        padding: 0 15px;
+        height: 55px;
+    }
+
+    /* Logo */
+    .logo-text {
+        font-size: 1.1rem !important;
+    }
+
+    /* Hide desktop navigation */
+    .center-links {
+        display: none;
+    }
+
+    /* Mobile menu toggle button */
+    .mobile-menu-toggle {
+        display: block !important;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #333;
+        padding: 5px;
+    }
+
+    /* Right icons - smaller spacing */
+    .right-icons {
+        gap: 12px;
+    }
+
+    .icon-btn {
+        font-size: 1.1rem;
+    }
+
+    .badge-count {
+        font-size: 0.55rem;
+        padding: 1px 4px;
+    }
+
+    /* Hide header nav completely on mobile */
+    .header-nav {
+        display: none !important;
+    }
+
+    /* Mobile navigation drawer */
+    .mobile-nav-drawer {
+        position: fixed;
+        top: 55px;
+        left: 0;
+        width: 280px;
+        height: calc(100vh - 55px);
+        background: white;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        z-index: 9998;
+        padding: 20px 0;
+    }
+
+    .mobile-nav-drawer.open {
+        transform: translateX(0);
+    }
+
+    .mobile-nav-item {
+        padding: 15px 20px;
+        border-bottom: 1px solid #f0f0f0;
+        color: #333;
+        text-decoration: none;
+        display: block;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    .mobile-nav-item:hover {
+        background: #f9f9f9;
+    }
+
+    /* Overlay when mobile menu open */
+    .mobile-overlay {
+        position: fixed;
+        top: 55px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9997;
+        display: none;
+    }
+
+    .mobile-overlay.active {
+        display: block;
+    }
+
+    /* Mega menu full width on mobile */
+    .mega-menu {
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-height: 70vh;
+        overflow-y: auto;
+        padding: 15px;
+    }
+
+    .mega-content {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .menu-column h4 {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+
+    .menu-column ul li a {
+        font-size: 0.85rem;
+        padding: 6px 0;
+    }
+
+    .mega-menu-footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu-promo img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .promo-label {
+        font-size: 0.8rem;
+    }
+}
+
+/* Extra Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .header-top {
+        padding: 0 10px;
+    }
+
+    .logo-text {
+        font-size: 1rem !important;
+    }
+
+    .icon-btn {
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    .right-icons {
+        gap: 8px;
+    }
+
+    .mobile-nav-drawer {
+        width: 100%;
+    }
+}

@@ -1,0 +1,400 @@
+/* --- Header Container --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    /* Increased to ensure it stays above all page content (modals, sticky sidebars) */
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    /* Use a clean sans-serif like the reference */
+    transition: background 0.3s, transform 0.3s ease-in-out;
+    /* Add transform transition */
+}
+
+/* Hide Header on Scroll Down */
+.main-header.header-hidden {
+    transform: translateY(-100%);
+    box-shadow: none;
+    /* Optional: remove shadow when hidden */
+}
+
+/* Landing Page Specifics */
+.main-header.landing-mode {
+    background-color: transparent !important;
+    box-shadow: none;
+    position: absolute;
+    /* Overlay content */
+}
+
+.main-header.landing-mode .header-nav {
+    display: none;
+    /* Hide the pink strip on landing page */
+}
+
+.main-header.landing-mode .header-top {
+    border-bottom: none;
+}
+
+/* --- Top Bar (Logo + Icons) --- */
+.header-top {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    /* Adjust as needed */
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.brand-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #4b2c68;
+    /* Purple brand color */
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+/* --- Center Links --- */
+.center-links {
+    display: flex;
+    gap: 60px;
+}
+
+.top-nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+}
+
+.top-nav-link:hover {
+    color: #b75e7f;
+    /* Rose Pink hover */
+}
+
+/* --- Right Actions & Compact Search --- */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Slightly reduced gap to fit more items */
+}
+
+/* Utility Group (Location/Lang) */
+.utility-icons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.lang-code {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 2px;
+    vertical-align: middle;
+}
+
+/* Vertical Divider */
+.action-divider {
+    width: 1px;
+    height: 20px;
+    background-color: #ddd;
+    margin: 0 5px;
+}
+
+.action-icon {
+    color: #333;
+    font-size: 1.1rem;
+    /* Slightly normalized size */
+    text-decoration: none;
+    position: relative;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+/* Reset button styles for utility icons */
+.btn-reset {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+}
+
+.action-icon:hover {
+    color: #b75e7f;
+}
+
+.search-bar-compact {
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    border-radius: 4px;
+    padding: 5px 12px;
+    width: 220px;
+    transition: all 0.3s;
+}
+
+.search-bar-compact:focus-within {
+    background: #fff;
+    box-shadow: 0 0 0 1px #ddd;
+}
+
+.search-bar-compact .search-icon {
+    color: #888;
+    font-size: 1rem;
+    margin-right: 8px;
+}
+
+.search-bar-compact input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 0.85rem;
+}
+
+/* --- Navigation Bar (Purple Strip) --- */
+.header-nav {
+    /* Metallic Rose Pink Gradient */
+    background: linear-gradient(90deg, #873e5f 0%, #b75e7f 50%, #873e5f 100%);
+    background-size: 200% auto;
+    animation: shine 5s linear infinite;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.nav-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    /* Reduced padding to fit all items */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    /* For shine effect */
+}
+
+/* Advanced Hover Effect: Background Flash & Underline */
+.nav-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.nav-item:hover::before {
+    left: 100%;
+}
+
+.nav-link-custom {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.75rem;
+    /* Smaller text size per request */
+    font-weight: 700;
+    /* Bold to maintain readability */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    /* Prevent wrapping */
+}
+
+/* Underline Animation */
+.nav-link-custom::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #ffe6f2;
+    /* Pale pink glow */
+    transition: width 0.3s ease, left 0.3s ease;
+    box-shadow: 0 0 10px #ffe6f2;
+}
+
+.nav-item:hover .nav-link-custom {
+    color: #ffe6f2;
+    transform: translateY(-2px);
+}
+
+.nav-item:hover .nav-link-custom::after {
+    width: 100%;
+    left: 0;
+}
+
+
+/* --- Mega Menu --- */
+.mega-menu {
+    position: fixed;
+    /* Fixed to viewport to ensure full width and correct placement */
+    top: 115px;
+    /* Height of Top Bar (70px) + Nav Bar (45px) */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 30px 0;
+    /* Vertical padding only, horiz handled by container */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: none;
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+    border-top: 1px solid #eee;
+    z-index: 1001;
+}
+
+.nav-item:hover .mega-menu {
+    display: flex;
+    flex-direction: column;
+    /* Stack content and footer */
+    opacity: 1;
+    visibility: visible;
+}
+
+.mega-menu-content {
+    width: 100%;
+    max-width: 1200px;
+    /* Standard container width */
+    margin: 0 auto;
+    /* Center the content block */
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.menu-column {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.menu-title {
+    color: #7b4ec2;
+    /* Purple header */
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-list li {
+    margin-bottom: 8px;
+}
+
+.menu-list a {
+    color: #555;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding-left: 0;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy transition */
+    display: inline-block;
+}
+
+.menu-list a:hover {
+    color: #b75e7f;
+    /* Matching Rose Pink */
+    padding-left: 10px;
+    /* Slide effect */
+    font-weight: 500;
+}
+
+/* Image Column in Mega Menu */
+.menu-image-col {
+    flex: 1.5;
+    /* Wider for images */
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.menu-promo {
+    text-align: center;
+    text-decoration: none;
+}
+
+.menu-promo img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.menu-promo:hover img {
+    transform: scale(1.05);
+}
+
+.promo-label {
+    display: block;
+    color: #4e2e66;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background: #eee;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* --- Misc --- */
+.badge-count {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    font-size: 0.6rem;
+    padding: 2px 5px;
+}
+
+/* Footer inside Mega Menu */
+.mega-menu-footer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto 0;
+    padding: 20px 20px 0;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 30px;
+}

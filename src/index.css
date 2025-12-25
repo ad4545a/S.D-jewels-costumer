@@ -5,9 +5,216 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* padding-top handled by Header.jsx for conditional layouts */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* =========================================
+   Modern UI Components
+   ========================================= */
+
+/* Backdrop Blur for Modals */
+.modal-backdrop.show {
+  opacity: 0.5;
+  backdrop-filter: blur(5px);
+}
+
+/* Modern Modal Design */
+.modern-modal .modal-content {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.modern-modal .modal-header {
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1.5rem 2rem;
+}
+
+.modern-modal .modal-title {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.modern-modal .modal-body {
+  padding: 2rem;
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.modern-modal .modal-footer {
+  border-top: none;
+  padding: 1.5rem 2rem;
+  background: #f8f9fa;
+}
+
+.modern-btn-secondary {
+  border-radius: 50px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.modern-btn-danger {
+  border-radius: 50px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+  border: none;
+}
+
+/* Modern Toast Notification */
+.modern-toast {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.modern-toast .toast-header {
+  border-bottom: none;
+  background: transparent;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.modern-toast .toast-body {
+  font-size: 0.95rem;
+  padding: 1rem;
+}
+
+/* Success Toast Specifics */
+.bg-success {
+  background-color: #0f5132 !important;
+  /* Darker green for elegance */
+  color: white;
+}
+
+.bg-danger {
+  background-color: #842029 !important;
+  /* Darker red */
+  color: white;
+}
+
+/* Wishlist Button Hover Effect */
+.wishlist-btn:hover {
+  background-color: #fff !important;
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+
+@media print {
+  @page {
+    margin: 0.5cm;
+    size: auto;
+  }
+
+  /* Hide specific elements during print */
+  .no-print,
+  header,
+  footer,
+  nav,
+  .navbar {
+    display: none !important;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-size: 12px;
+    background-color: white !important;
+  }
+
+  html,
+  body {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Reset container widths */
+  .container,
+  .container-fluid {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Compact the invoice card */
+  .print-optimized {
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .print-optimized .card-body {
+    padding: 0 !important;
+  }
+
+  /* Reduce spacing helpers for print */
+  .mb-5 {
+    margin-bottom: 1rem !important;
+  }
+
+  .pb-4 {
+    padding-bottom: 0.5rem !important;
+  }
+
+  .p-5 {
+    padding: 1.5rem !important;
+  }
+
+  .mt-5 {
+    margin-top: 0 !important;
+  }
+
+  .py-5 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Compact banner */
+  .invoice-banner {
+    padding: 1.5rem !important;
+  }
+
+  /* Scale highlights */
+  h1.display-4 {
+    font-size: 2.5rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  h4 {
+    font-size: 1.2rem !important;
+  }
+
+  h5 {
+    font-size: 1.1rem !important;
+  }
+
+  /* Compact Table */
+  table td,
+  table th {
+    padding: 0.5rem !important;
+  }
+}
+
+/* Responsive Styles */
+@import './responsive.css';

@@ -1,0 +1,275 @@
+/* --- Shop Page Styles --- */
+.shop-page {
+    /* Padding handled globally by body top-padding now */
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+/* Filter Sidebar */
+.filter-sidebar {
+    position: sticky;
+    top: 100px;
+    padding-right: 20px;
+    border-right: 1px solid #f0f0f0;
+}
+
+.filter-section-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: 6px 0;
+    font-size: 0.9rem;
+    color: #333;
+    border-radius: 0;
+    transition: all 0.2s ease;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+/* Custom Checkbox Look */
+.filter-btn::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 10px;
+    transition: all 0.2s;
+    background: white;
+}
+
+.filter-btn:hover {
+    color: #000;
+}
+
+.filter-btn:hover::before {
+    border-color: #666;
+}
+
+.filter-btn.active {
+    font-weight: 600;
+    color: #000;
+}
+
+.filter-btn.active::before {
+    background-color: #a8741a;
+    /* Gold/Bronze accent */
+    border-color: #a8741a;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='12px' height='12px'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Shop Header */
+.shop-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shop-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Product Grid Item */
+.product-grid-item {
+    padding: 0 10px;
+}
+
+/* Card Styling Update */
+.product-card-modern {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s ease;
+    background: #fff;
+    cursor: pointer;
+}
+
+.product-card-modern:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-color: #f0f0f0;
+}
+
+.product-img-container {
+    background: #fdfdfd;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 100%;
+    /* Square Aspect Ratio */
+}
+
+.product-img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Ensure whole product is visible like reference */
+    padding: 20px;
+    transition: transform 0.5s ease;
+}
+
+.product-card-modern:hover .product-img-container img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    text-align: left;
+    /* Aligned left like reference */
+}
+
+.product-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 2px;
+}
+
+.product-title {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #666;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Fade In Animation */
+.product-grid-item {
+    opacity: 0;
+    animation: fadeUpItem 0.6s ease-out forwards;
+}
+
+/* Stagger delays */
+.product-grid-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.product-grid-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.product-grid-item:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.product-grid-item:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.product-grid-item:nth-child(5) {
+    animation-delay: 0.3s;
+}
+
+.product-grid-item:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.product-grid-item:nth-child(7) {
+    animation-delay: 0.4s;
+}
+
+.product-grid-item:nth-child(8) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeUpItem {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Mobile Filter Offcanvas --- */
+.mobile-filter-offcanvas {
+    max-width: 320px;
+}
+
+.mobile-filter-offcanvas .offcanvas-header {
+    background: #fff;
+    padding: 16px 20px;
+}
+
+.mobile-filter-offcanvas .offcanvas-body {
+    background: #fafafa;
+    overflow-y: auto;
+    padding-bottom: 80px;
+}
+
+.mobile-filter-offcanvas .filter-accordion .accordion-button {
+    background: #fff;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.mobile-filter-offcanvas .filter-accordion .accordion-button:not(.collapsed) {
+    background: #fff;
+    color: #000;
+    box-shadow: none;
+}
+
+.mobile-filter-offcanvas .filter-accordion .accordion-body {
+    background: #fff;
+    padding: 12px 16px;
+}
+
+/* Mobile filter button styling */
+@media (max-width: 767.98px) {
+    .shop-page .container-fluid {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    .product-grid-item {
+        padding: 0 6px;
+    }
+
+    .product-card-modern {
+        padding: 6px;
+    }
+
+    .product-img-container img {
+        padding: 10px;
+    }
+
+    .product-price {
+        font-size: 0.95rem;
+    }
+
+    .product-title {
+        font-size: 0.8rem;
+    }
+}
