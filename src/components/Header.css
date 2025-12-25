@@ -29,6 +29,11 @@
     /* Overlay content */
 }
 
+/* Mobile Toggle Hidden on Desktop */
+.mobile-menu-toggle {
+    display: none;
+}
+
 .main-header.landing-mode .header-nav {
     display: none;
     /* Hide the pink strip on landing page */

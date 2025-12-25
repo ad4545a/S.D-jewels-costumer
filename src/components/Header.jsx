@@ -179,10 +179,43 @@ const Header = () => {
         }
     ];
 
+    const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+    // Close mobile menu on route change
+    useEffect(() => {
+        setShowMobileMenu(false);
+    }, [location]);
+
     return (
         <header className={`main-header ${isLandingPage ? 'landing-mode' : ''} ${!showHeader ? 'header-hidden' : ''}`}>
+            {/* Mobile Overlay */}
+            <div className={`mobile-overlay ${showMobileMenu ? 'active' : ''}`} onClick={() => setShowMobileMenu(false)}></div>
+
+            {/* Mobile Nav Drawer */}
+            <div className={`mobile-nav-drawer ${showMobileMenu ? 'open' : ''}`}>
+                <div className="d-flex justify-content-between align-items-center px-3 mb-3">
+                    <span className="fw-bold fs-5">Menu</span>
+                    <button className="btn-close" onClick={() => setShowMobileMenu(false)}></button>
+                </div>
+                {menuItems.map((item, index) => (
+                    <Link key={index} to={item.link} className="mobile-nav-item">
+                        {item.label}
+                    </Link>
+                ))}
+                <div className="border-top mt-3 pt-3 px-3">
+                    <Link to="/profile" className="mobile-nav-item"><i className="bi bi-person me-2"></i>My Profile</Link>
+                    <Link to="/wishlist" className="mobile-nav-item"><i className="bi bi-heart me-2"></i>Wishlist</Link>
+                    <Link to="/cart" className="mobile-nav-item"><i className="bi bi-bag me-2"></i>Cart</Link>
+                </div>
+            </div>
+
             {/* Top Bar: Logo, Search, Icons */}
             <div className="header-top">
+                {/* Mobile Toggle Button */}
+                <button className="mobile-menu-toggle me-2" onClick={() => setShowMobileMenu(true)}>
+                    <i className="bi bi-list"></i>
+                </button>
+
                 <Link to="/" className="brand-logo">
                     <i className="bi bi-gem me-2"></i>S.D. JEWELS
                 </Link>

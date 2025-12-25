@@ -155,3 +155,23 @@
     color: #ff8b94;
     border-radius: 10px;
 }
+
+/* Response Fixes */
+@media (max-width: 576px) {
+    .auth-card {
+        padding: 1.5rem;
+        margin: 0 10px;
+    }
+
+    .auth-title {
+        font-size: 1.8rem;
+    }
+
+    .auth-page {
+        padding: 10px;
+    }
+
+    .auth-icon {
+        font-size: 2.5rem;
+    }
+}
