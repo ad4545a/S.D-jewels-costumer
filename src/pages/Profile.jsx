@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { useWishlist } from '../context/WishlistContext';
 import ProductCard from '../components/ProductCard';
 import './Profile.css';
+import { API_URL } from '../config';
 
 const Profile = () => {
     const { user, logout } = useAuth();
@@ -215,7 +216,7 @@ const OrderHistory = () => {
     React.useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/orders/myorders', {
+                const res = await fetch(`${API_URL}/orders/myorders`, {
                     headers: {
                         Authorization: `Bearer ${user.token}`,
                     },

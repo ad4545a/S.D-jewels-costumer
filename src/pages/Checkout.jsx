@@ -5,6 +5,7 @@ import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { FaTruck, FaCreditCard, FaMoneyBillWave, FaMobileAlt, FaUniversity, FaWallet, FaArrowLeft, FaArrowRight, FaCheck } from 'react-icons/fa';
 import './Checkout.css';
+import { API_URL } from '../config';
 
 const PAYMENT_METHODS = [
     { id: 'cod', name: 'Cash on Delivery', icon: FaMoneyBillWave, description: 'Pay when you receive your order' },
@@ -94,7 +95,7 @@ const Checkout = () => {
         };
 
         try {
-            const res = await fetch('http://localhost:5000/api/orders', {
+            const res = await fetch(`${API_URL}/orders`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

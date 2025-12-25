@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Table, Card, Spinner, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { API_URL } from '../config';
 
 const OrderInvoice = () => {
     const { id } = useParams();
@@ -13,7 +14,7 @@ const OrderInvoice = () => {
     useEffect(() => {
         const fetchOrder = async () => {
             try {
-                const res = await fetch(`http://localhost:5000/api/orders/${id}`, {
+                const res = await fetch(`${API_URL}/orders/${id}`, {
                     headers: {
                         Authorization: `Bearer ${user.token}`,
                     },

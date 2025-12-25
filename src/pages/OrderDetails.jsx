@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, ListGroup, Image, Badge, Spinner, Button, Mo
 import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import io from 'socket.io-client';
+import { API_URL } from '../config';
 
 const TrackOrder = ({ status, isDelivered }) => {
     const steps = ['Processing', 'Accepted', 'Shipped', 'Delivered'];
@@ -85,7 +86,8 @@ const OrderDetails = () => {
 
     // Socket.IO Listener
     useEffect(() => {
-        const socket = io('http://localhost:5000');
+        const socketUrl = API_URL.replace('/api', '');
+        const socket = io(socketUrl);
 
         socket.on('connect', () => {
             console.log('Connected to socket server');
@@ -134,7 +136,7 @@ const OrderDetails = () => {
     const executeCancelOrder = async () => {
         setActionLoading(true);
         try {
-            const res = await fetch(`http://localhost:5000/api/orders/${order._id}/cancel`, {
+            const res = await fetch(`${API_URL}/orders/${order._id}/cancel`, {
                 method: 'PUT',
                 headers: { Authorization: `Bearer ${user.token}` }
             });
@@ -155,7 +157,7 @@ const OrderDetails = () => {
     const executeReturnOrder = async () => {
         setActionLoading(true);
         try {
-            const res = await fetch(`http://localhost:5000/api/orders/${order._id}/return`, {
+            const res = await fetch(`${API_URL}/orders/${order._id}/return`, {
                 method: 'PUT',
                 headers: { Authorization: `Bearer ${user.token}` }
             });
@@ -176,7 +178,7 @@ const OrderDetails = () => {
     useEffect(() => {
         const fetchOrder = async () => {
             try {
-                const res = await fetch(`http://localhost:5000/api/orders/${id}`, {
+                const res = await fetch(`${API_URL}/orders/${id}`, {
                     headers: {
                         Authorization: `Bearer ${user.token}`,
                     },

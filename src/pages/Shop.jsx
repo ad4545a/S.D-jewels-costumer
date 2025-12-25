@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import './Shop.css';
 import io from 'socket.io-client';
+import { API_URL } from '../config';
 
 // --- Constants for Filter Options ---
 const GENDER_OPTIONS = ["Women", "Men", "Kids", "Unisex"];
@@ -72,12 +73,12 @@ const Shop = () => {
         const fetchData = async () => {
             try {
                 // Fetch Categories
-                const catRes = await fetch('http://localhost:5000/api/categories');
+                const catRes = await fetch(`${API_URL}/categories`);
                 const catData = await catRes.json();
                 if (catRes.ok) setAvailableCategories(catData.map(c => c.name));
 
                 // Fetch Products
-                const prodRes = await fetch('http://localhost:5000/api/products');
+                const prodRes = await fetch(`${API_URL}/products`);
                 const prodData = await prodRes.json();
                 if (prodRes.ok) setProducts(prodData);
 
@@ -90,7 +91,11 @@ const Shop = () => {
 
         fetchData();
 
-        const socket = io('http://localhost:5000');
+        // Use root URL for socket if needed, or API_URL with path check
+        // Assuming API_URL is http://.../api, we might need to trim /api for socket
+        // But for Render, the domain is the same.
+        const socketUrl = API_URL.replace('/api', '');
+        const socket = io(socketUrl);
         socket.on('data_updated', fetchData); // Simplistic refresh
         return () => socket.disconnect();
     }, []);

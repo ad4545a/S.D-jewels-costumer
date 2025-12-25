@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaStar, FaFire } from 'react-icons/fa';
 import ProductCard from '../components/ProductCard';
 import './Home.css';
+import { API_URL } from '../config';
 
 const Home = () => {
     // Use a model image similar to the reference
@@ -18,14 +19,14 @@ const Home = () => {
         const fetchProducts = async () => {
             try {
                 // Fetch featured products
-                const res = await fetch('http://localhost:5000/api/products');
+                const res = await fetch(`${API_URL}/products`);
                 const data = await res.json();
                 if (res.ok) {
                     setFeaturedProducts(data.slice(0, 4));
                 }
 
                 // Fetch analytics data
-                const analyticsRes = await fetch('http://localhost:5000/api/products/analytics/featured');
+                const analyticsRes = await fetch(`${API_URL}/products/analytics/featured`);
                 const analyticsData = await analyticsRes.json();
                 if (analyticsRes.ok) {
                     setBestSellers(analyticsData.bestSellers?.slice(0, 4) || []);

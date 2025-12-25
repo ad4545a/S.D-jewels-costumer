@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import ProductCard from '../components/ProductCard';
 import './ProductDetails.css';
+import { API_URL } from '../config';
 
 const ProductDetails = () => {
     const { id } = useParams();
@@ -21,7 +22,7 @@ const ProductDetails = () => {
 
         const fetchSimilar = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/products');
+                const res = await fetch(`${API_URL}/products`);
                 const data = await res.json();
 
                 if (res.ok) {
@@ -58,7 +59,7 @@ const ProductDetails = () => {
             try {
                 // If id is not present or is a mock ID (small number), we might want to handle differently
                 // But for now, let's try to fetch.
-                const res = await fetch(`http://localhost:5000/api/products/${id}`);
+                const res = await fetch(`${API_URL}/products/${id}`);
                 const data = await res.json();
 
                 if (res.ok) {
