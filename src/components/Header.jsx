@@ -41,6 +41,7 @@ const Header = () => {
         if (isLandingPage) {
             document.body.style.paddingTop = '0px';
         } else {
+            // Top Bar (70px) + Nav Bar (45px) = 115px (Category bar now hidden)
             document.body.style.paddingTop = '115px';
         }
         return () => {
@@ -206,6 +207,38 @@ const Header = () => {
                     <Link to="/profile" className="mobile-nav-item"><i className="bi bi-person me-2"></i>My Profile</Link>
                     <Link to="/wishlist" className="mobile-nav-item"><i className="bi bi-heart me-2"></i>Wishlist</Link>
                     <Link to="/cart" className="mobile-nav-item"><i className="bi bi-bag me-2"></i>Cart</Link>
+                </div>
+            </div>
+
+            {/* Top Category Bar */}
+            <div className="header-category-bar">
+                <div className="category-bar-content">
+                    <div className="category-bar-left">
+                        <span className="menu-label fw-bold">Menu</span>
+                        <div className="category-links">
+                            {menuItems.map((item, index) => (
+                                <Link key={index} to={item.link} className="category-link">
+                                    {item.label}
+                                </Link>
+                            ))}
+                        </div>
+                        <div className="account-links">
+                            <Link to={user ? "/profile" : "/login"} className="account-link">
+                                <i className="bi bi-person me-1"></i>My Profile
+                            </Link>
+                            <Link to="/wishlist" className="account-link">
+                                <i className="bi bi-heart me-1"></i>Wishlist
+                            </Link>
+                            <Link to="/cart" className="account-link">
+                                <i className="bi bi-bag me-1"></i>Cart
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="category-bar-right">
+                        <button type="button" className="settings-btn">
+                            Settings and more (Alt+F)
+                        </button>
+                    </div>
                 </div>
             </div>
 

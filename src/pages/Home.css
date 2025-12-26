@@ -174,3 +174,126 @@ h6 {
         transform: translateY(0px);
     }
 }
+
+/* ========================================
+   RESPONSIVE STYLES FOR HOME PAGE
+   ======================================== */
+
+/* Tablet and below */
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-section {
+        min-height: 70vh;
+        padding-top: 60px;
+    }
+
+    .hero-image-container {
+        min-height: 400px;
+    }
+
+    .section-title-modern h2 {
+        font-size: 2.5rem;
+    }
+
+    .circle-deco {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .hero-section {
+        min-height: auto;
+        padding: 60px 0 40px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-text-content {
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .hero-image-container {
+        min-height: 300px;
+        margin-bottom: 20px;
+    }
+
+    .hero-model-img {
+        animation: none;
+        /* Disable animation on mobile for performance */
+    }
+
+    .section-title-modern h2 {
+        font-size: 1.8rem;
+    }
+
+    .section-title-modern {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .section-title-modern .line {
+        margin: 15px auto;
+    }
+
+    .circle-deco {
+        width: 200px;
+        height: 200px;
+        top: 5%;
+        left: -80px;
+    }
+
+    /* Stack hero content vertically on mobile */
+    .hero-section .row {
+        flex-direction: column-reverse;
+    }
+
+    /* Newsletter section */
+    .form-control {
+        min-width: 100% !important;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        position: static !important;
+        width: 100%;
+        margin: 0 !important;
+    }
+
+    .d-inline-block {
+        display: block !important;
+        width: 100%;
+    }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .lead {
+        font-size: 0.9rem;
+    }
+
+    .btn-pill-black {
+        padding: 10px 30px;
+        font-size: 0.85rem;
+    }
+
+    .section-title-modern h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-image-container {
+        min-height: 250px;
+    }
+}

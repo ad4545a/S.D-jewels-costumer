@@ -14,6 +14,93 @@
     /* Add transform transition */
 }
 
+/* --- Top Category Bar --- */
+.header-category-bar {
+    display: none !important;
+    /* Hidden - looks like browser menu, not suitable for jewelry site */
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 12px 40px;
+}
+
+.category-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.category-bar-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-label {
+    font-size: 1rem;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.category-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.category-link {
+    color: #0066cc;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.category-link:hover {
+    color: #004499;
+}
+
+.account-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.account-link {
+    color: #0066cc;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.account-link:hover {
+    color: #004499;
+}
+
+.category-bar-right {
+    display: flex;
+    align-items: center;
+}
+
+.settings-btn {
+    background-color: #4a4a4a;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.settings-btn:hover {
+    background-color: #333;
+}
+
 /* Hide Header on Scroll Down */
 .main-header.header-hidden {
     transform: translateY(-100%);
@@ -52,6 +139,10 @@
     padding: 0 40px;
     /* Adjust as needed */
     border-bottom: 1px solid #f0f0f0;
+}
+
+.main-header.landing-mode .header-category-bar {
+    display: none;
 }
 
 .brand-logo {
@@ -270,7 +361,7 @@
     position: fixed;
     /* Fixed to viewport to ensure full width and correct placement */
     top: 115px;
-    /* Height of Top Bar (70px) + Nav Bar (45px) */
+    /* Height of Top Bar (70px) + Nav Bar (45px) - Category bar now hidden */
     left: 0;
     width: 100%;
     background: #fff;
