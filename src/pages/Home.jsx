@@ -21,8 +21,14 @@ const Home = () => {
                 console.log('🔍 API_URL:', API_URL);
                 console.log('🌐 Fetching from:', `${API_URL}/products`);
 
-                // Fetch featured products
-                const res = await fetch(`${API_URL}/products`);
+                // Fetch featured products with CORS mode
+                const res = await fetch(`${API_URL}/products`, {
+                    method: 'GET',
+                    mode: 'cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
                 console.log('📡 Response status:', res.status, res.statusText);
 
                 if (!res.ok) {
@@ -34,7 +40,13 @@ const Home = () => {
                 setFeaturedProducts(data.slice(0, 4));
 
                 // Fetch analytics data
-                const analyticsRes = await fetch(`${API_URL}/products/analytics/featured`);
+                const analyticsRes = await fetch(`${API_URL}/products/analytics/featured`, {
+                    method: 'GET',
+                    mode: 'cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
                 if (analyticsRes.ok) {
                     const analyticsData = await analyticsRes.json();
                     setBestSellers(analyticsData.bestSellers?.slice(0, 4) || []);
