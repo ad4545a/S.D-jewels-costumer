@@ -331,7 +331,7 @@ const Shop = () => {
                 <Row>
                     {/* Desktop Filters Sidebar */}
                     <Col lg={2} md={3} className="d-none d-md-block pe-4">
-                        <div className="filter-sidebar sticky-top" style={{ top: '80px', maxHeight: '90vh', overflowY: 'auto' }}>
+                        <div className="filter-sidebar sticky-top" style={{ top: '180px', maxHeight: '90vh', overflowY: 'auto' }}>
                             <div className="d-flex justify-content-between align-items-center mb-3">
                                 <span className="fw-bold text-uppercase text-dark" style={{ letterSpacing: '1px' }}>Filter By</span>
                                 <button className="btn btn-link p-0 text-decoration-none small text-danger fw-bold" onClick={handleClearAll} style={{ fontSize: '0.75rem' }}>CLEAR ALL</button>

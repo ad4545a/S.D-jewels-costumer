@@ -187,6 +187,18 @@ const Header = () => {
         setShowMobileMenu(false);
     }, [location]);
 
+    // Close mobile menu on resize to desktop
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768 && showMobileMenu) {
+                setShowMobileMenu(false);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [showMobileMenu]);
+
     return (
         <header className={`main-header ${isLandingPage ? 'landing-mode' : ''} ${!showHeader ? 'header-hidden' : ''}`}>
             {/* Mobile Overlay */}
